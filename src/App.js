@@ -10,6 +10,8 @@ import SignInAndSignUpPage from "./pages/sign-in-and-sign-out/sign-in-and-sign-o
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 
 import { setCurrentUser } from "./redux/user/user.actions";
+import { selectCurrentUser } from "./redux/user/user.selectors";
+import CheckOutPage from "./pages/checkout/checkout.component";
 
 class App extends Component {
   unsuscribeFromAuth = null;
@@ -44,7 +46,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
-          {/* <Route path="/signin" component={SignInAndSignUpPage} /> */}
+          <Route exact path="/checkout" component={CheckOutPage} />
           <Route
             exact
             path="/signin"
@@ -63,7 +65,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  currentUser: state.user.currentUser
+  currentUser: selectCurrentUser(state)
 });
 
 const mapDispatchToProps = dispatch => ({

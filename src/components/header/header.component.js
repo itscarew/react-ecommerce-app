@@ -1,10 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { createStructuredSelector } from "reselect";
 
 import { auth } from "../../firebase/firebase.utils";
-
 import { ReactComponent as Logo } from "../../assets/4.4 crown.svg.svg";
+
+import { toggleCart } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 import "./header.styles.scss";
 import CartIcon from "../cart-icon/cart-icon.component";
@@ -39,9 +42,9 @@ const Header = ({ currentUser, toggleCart }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  currentUser: state.user.currentUser,
-  toggleCart: state.cart.hidden
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+  toggleCart: toggleCart
 });
 
 export default connect(mapStateToProps)(Header);
