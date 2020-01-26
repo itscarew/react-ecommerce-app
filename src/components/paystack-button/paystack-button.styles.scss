@@ -1,0 +1,13 @@
+.pay-button {
+  background-color: rgb(50, 134, 212);
+  border: none;
+  padding: 10px 30px;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: rgb(70, 150, 224);
+    cursor: pointer;
+  }
+}

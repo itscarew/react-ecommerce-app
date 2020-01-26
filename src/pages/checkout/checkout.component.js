@@ -8,6 +8,7 @@ import {
   selectCartTotal
 } from "../../redux/cart/cart.selectors";
 import CheckoutItem from "../../components/checkout-item/checkout-item.component";
+import PayStack from "../../components/paystack-button/paystack-button";
 
 const CheckOutPage = ({ cartItems, total }) => {
   return (
@@ -36,6 +37,7 @@ const CheckOutPage = ({ cartItems, total }) => {
       <div className="total">
         <span>TOTAL : ${total}</span>
       </div>
+      <PayStack price={total} />
     </div>
   );
 };
