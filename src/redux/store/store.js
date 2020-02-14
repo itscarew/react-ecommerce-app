@@ -6,7 +6,11 @@ import thunk from "redux-thunk";
 
 import rootReducer from "../root-reducer";
 
-const middlewares = [thunk];
+const middlewares = [];
+
+if (process.env.NODE_ENV === "development") {
+  middlewares.push(thunk);
+}
 
 export const store = createStore(
   rootReducer,
