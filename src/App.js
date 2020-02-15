@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+
 import { connect } from "react-redux";
 
 import HomePage from "./pages/homepage/homepage.component";
@@ -12,6 +12,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import CheckOutPage from "./pages/checkout/checkout.component";
+import { GlobalStyle } from "./global.styles";
 
 class App extends Component {
   unsuscribeFromAuth = null;
@@ -42,6 +43,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <GlobalStyle />
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
