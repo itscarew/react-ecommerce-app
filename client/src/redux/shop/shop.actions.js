@@ -13,7 +13,7 @@ export const FetchCollectionsSuccess = collectionsMap => ({
 });
 
 export const FetchCollectionsFailure = errorMessage => ({
-  type: "FETCH_COLLECTIONS_START",
+  type: "FETCH_COLLECTIONS_FAILURE",
   payload: errorMessage
 });
 
